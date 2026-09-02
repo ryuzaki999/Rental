@@ -1,16 +1,13 @@
+# 🏟️ SportRental — ระบบจองสนามกีฬาออนไลน์
 
+ค้นหา / จองสนามกีฬา **พร้อมเช่าอุปกรณ์** ชำระเงินจำลองผ่าน **PromptPay QR** และมีแดชบอร์ดสำหรับเจ้าของสนาม (Admin)
+Frontend **Vue 3 + Vite** · Backend **Node.js (Express) + SQLite** · Deploy บน **Render**
 
-
-# SportRental 🏟️ — ระบบจองสนามกีฬาออนไลน์
-
-เว็บแอปพลิเคชันสำหรับ **ค้นหา / จองสนามกีฬา** พร้อมเช่าอุปกรณ์กีฬา ชำระเงินผ่าน QR PromptPay แบบจำลอง (mock) และมีแดชบอร์ดสำหรับเจ้าของสนาม/admin
-
-โปรเจกต์นี้เป็น **Monorepo** ที่ประกอบด้วย 2 ส่วนหลัก:
-
-| โฟลเดอร์ | บทบาท | เทคโนโลยี |
-|---|---|---|
-| `client/` | Frontend (หน้าเว็บ) | Vue 3, Vite 7, Tailwind CSS 4, Pinia, Vue Router, Axios, Socket.io-client |
-| `server/` | Backend (API) | Node.js, Express 5, Sequelize, SQLite, Socket.io, JWT (Passport), Multer |
+> ## 🌐 🔴 ลองเล่น (Live Demo)
+>
+> **https://rental-d9hq.onrender.com**
+>
+> 👤 **Admin:** `admin@gmail.com` / `123456` · 👤 **ผู้ใช้:** สมัครได้ที่หน้า Register
 
 ## ✨ ฟีเจอร์หลัก
 

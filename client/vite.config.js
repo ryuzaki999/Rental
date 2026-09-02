@@ -16,6 +16,10 @@ export default defineConfig({
         target: 'http://localhost:8081',
         changeOrigin: true
       },
+      '/public': {
+        target: 'http://localhost:8081',
+        changeOrigin: true
+      },
       '/socket.io': {
         target: 'http://localhost:8081',
         ws: true,

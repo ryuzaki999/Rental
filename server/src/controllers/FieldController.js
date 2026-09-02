@@ -192,11 +192,11 @@ module.exports = {
       res.status(500).send({ error: 'The field information was incorrect' })
     }
   },
-  // Upload an image file and return path
+  // Upload an image file and return relative path (works on any host)
   async upload (req, res) {
     try {
       if (!req.file) return res.status(400).send({ error: 'No file uploaded' })
-      const imagePath = req.protocol + '://' + req.get('host') + '/public/uploads/' + req.file.filename
+      const imagePath = '/public/uploads/' + req.file.filename
       res.send({ image: imagePath })
     } catch (err) {
       console.error(err)
