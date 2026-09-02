@@ -1,0 +1,24 @@
+#!/bin/bash
+# cloud-init for Ubuntu EC2 to provision Node, PM2 and deploy app
+# Replace <GIT_REPO_URL> and <BRANCH> before using, or edit after launch.
+
+#cloud-config
+package_update: true
+package_upgrade: true
+packages:
+  - git
+  - curl
+  - build-essential
+
+runcmd:
+  - curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+  - apt-get install -y nodejs
+  - npm install -g pm2
+  - mkdir -p /home/ubuntu/app
+  - chown -R ubuntu:ubuntu /home/ubuntu/app
+  - su - ubuntu -c "git clone --depth 1 --branch <BRANCH> <GIT_REPO_URL> /home/ubuntu/app || (cd /home/ubuntu/app && git pull)"
+  - su - ubuntu -c "cd /home/ubuntu/app/server && npm install --production"
+  - su - ubuntu -c "cd /home/ubuntu/app/client && npm install --production && npm run build"
+  - su - ubuntu -c "pm2 start /home/ubuntu/app/server/src/app.js --name rental-server --watch"
+  - su - ubuntu -c "pm2 serve /home/ubuntu/app/client/dist 8080 --name rental-client --spa"
+  - su - ubuntu -c "pm2 save"

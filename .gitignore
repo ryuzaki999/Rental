@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Frontend build output (จะ build ใหม่บน server ตอน deploy)
+client/dist/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Logs & temporary files
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
