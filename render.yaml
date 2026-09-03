@@ -9,4 +9,4 @@ services:
       - key: NODE_ENV
         value: production
       - key: JWT_SECRET
-        value: change-this-to-a-random-secret
+        generateValue: true

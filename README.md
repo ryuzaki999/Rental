@@ -92,6 +92,16 @@ npm start
 
 API ทั้งหมดถูกย้ายไปอยู่ใต้ `/api/*` (เช่น `GET /api/fields`, `POST /api/login`) เพื่อไม่ชนกับเส้นทางของหน้าเว็บ
 
+## 🧪 ทดสอบ (Tests)
+
+Backend มี automated tests (Vitest + Supertest) แล้ว:
+
+```bash
+cd server
+npm install
+npm test    # 7 tests: register / login / wrong-password / duplicate / protected-route / fields
+```
+
 ## 🔑 บัญชีสำหรับทดลองใช้
 
 | บทบาท | อีเมล | รหัสผ่าน |
