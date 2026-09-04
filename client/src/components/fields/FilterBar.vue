@@ -120,7 +120,10 @@ export default {
   watch: {
     filters: {
       handler(newFilters) {
-        this.localFilters = this.normalizeFilters(newFilters)
+        const normalized = this.normalizeFilters(newFilters)
+        if (this.filtersDiffer(normalized)) {
+          this.localFilters = normalized
+        }
         this.syncPriceRange()
       },
       deep: true,
@@ -134,6 +137,14 @@ export default {
     }
   },
   methods: {
+    filtersDiffer(next) {
+      const cur = this.localFilters || {}
+      return cur.search !== next.search ||
+        cur.sportType !== next.sportType ||
+        cur.location !== next.location ||
+        cur.min_price !== next.min_price ||
+        cur.max_price !== next.max_price
+    },
     normalizeFilters(value) {
       return {
         search: value?.search || '',
